@@ -22,7 +22,7 @@ class Demande(models.Model):
 
 class Contrat(models.Model):
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
-    personnel = models.ForeignKey('personnel_management.Personnel', on_delete=models.CASCADE)
+    personnel = models.ForeignKey('personnel_mgn.Personnel', on_delete=models.CASCADE)
     date_debut = models.DateField()
     date_fin = models.DateField()
     statut = models.CharField(max_length=20)
