@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Détails de l'agent {{ agent.nom }}{% endblock %}
+
+{% block content %}
+    <h2>Détails de l'agent {{ agent.nom }}</h2>
+    <p>Nom : {{ agent.nom }}</p>
+    <p>Email : {{ agent.email }}</p>
+    <!-- Autres détails à afficher selon votre modèle Agent -->
+    <a href="{% url 'agent_mgn:agent_update' agent.pk %}">Modifier</a>
+    <a href="{% url 'agent_mgn:agent_delete' agent.pk %}">Supprimer</a>
+{% endblock %}

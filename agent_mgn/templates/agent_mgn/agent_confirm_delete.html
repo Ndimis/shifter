@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Confirmer la suppression de l'agent {{ agent.nom }}{% endblock %}
+
+{% block content %}
+    <h2>Confirmer la suppression de l'agent {{ agent.nom }}</h2>
+    <p>Êtes-vous sûr de vouloir supprimer cet agent ? Cette action est irréversible.</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirmer la suppression</button>
+    </form>
+    <a href="{% url 'agent_mgn:agent_detail' agent.pk %}">Annuler et revenir aux détails de l'agent</a>
+{% endblock %}

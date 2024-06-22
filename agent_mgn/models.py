@@ -1,7 +1,7 @@
 from django.db import models
 from user_mgn.models import User
 
-class AgentDeSuivi(models.Model):
+class Agent(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     nom = models.CharField(max_length=255)
     email = models.EmailField()

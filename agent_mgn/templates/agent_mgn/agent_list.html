@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Liste des agents{% endblock %}
+
+{% block content %}
+    <h2>Liste des agents</h2>
+    <ul>
+        {% for agent in agents %}
+            <li><a href="{% url 'agent_mgn:agent_detail' agent.pk %}">{{ agent.nom }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'agent_mgn:agent_create' %}">Ajouter un agent</a>
+{% endblock %}
