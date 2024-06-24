@@ -17,13 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
+from shifter.views import HomePageView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
-    path('', TemplateView.as_view(template_name='home.html'), name='home'),
-    #path('client_management/', include('client_management.urls', namespace='client_management')),
-    #path('personnel_management/', include('personnel_management.urls', namespace='personnel_management')),
+    path('', HomePageView.as_view(), name='home'),
+    path('client_mgn/', include('customer_mgn.urls', namespace='customer_mgn')),
+    path('personnel_mgn/', include('personnel_mgn.urls', namespace='personnel_mgn')),
     path('agent_mgn/', include('agent_mgn.urls', namespace='agent_mgn')),
     #path('scheduler/', include('scheduler.urls', namespace='scheduler')),
     #path('payment_management/', include('payment_management.urls', namespace='payment_management')),

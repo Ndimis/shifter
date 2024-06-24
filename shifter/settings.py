@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'authentication',
+    'widget_tweaks',
     'agent_mgn',
     'customer_mgn',
     'incident_mgn',

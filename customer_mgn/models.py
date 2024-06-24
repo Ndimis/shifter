@@ -9,6 +9,8 @@ class Client(models.Model):
     adresse = models.TextField()
     créé_par = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='clients_crees')
 
+    
+
 class Maison(models.Model):
     adresse = models.TextField()
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
