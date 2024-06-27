@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+  <!-- Page Heading -->
+  <h1 class="h3 mb-2 text-gray-800">Gestion du personnel</h1>
+  <p class="mb-4"> <a href="{% url 'personnel_mgn:personnel_create' %}">Add New Personnel</a>.</p>
+
+  <!-- DataTales Example -->
+  <div class="card shadow mb-4">
+      <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Liste du personnel</h6>
+      </div>
+      <div class="card-body">
+          <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                      <tr>
+                          <th>Nom</th>
+                          <th>Domaine</th>
+                          <th>Email</th>
+                          <th>Tel.</th>
+                          <th>Clients</th>
+                          <th>Résidences</th>
+                      </tr>
+                  </thead>
+                  <tfoot>
+                      <tr>
+                          <th>Nom</th>
+                          <th>Domaine</th>
+                          <th>Email</th>
+                          <th>Tel.</th>
+                          <th>Clients</th>
+                          <th>Résidences</th>
+                      </tr>
+                  </tfoot>
+                  <tbody>
+ 
+                    {% for personnel in personnels %}
+                      <tr>
+                          <td><a href="{% url 'personnel_mgn:personnel_detail' personnel.pk %}">{{ personnel.nom }}</a></td>
+                          <td>{{ personnel.specialite }}</td>
+                          <td>{{  personnel.user.email }}</td>
+                          <td>{{ personnel.téléphone }}</td>
+                          <td>{{ personnel.user.email }}</td>
+                          <td>{{ personnel.adresse }}</td>
+                      </tr>
+                    {% endfor %}
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
+
+</div>
+<!-- /.container-fluid -->
+{% endblock %}
