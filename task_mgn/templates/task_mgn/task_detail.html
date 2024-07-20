@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>{{ personnel.first_name }} {{ personnel.last_name }}</h2>
+  <p>Email: {{ personnel.email }}</p>
+  <p>Phone: {{ personnel.phone_number }}</p>
+  <p>Address: {{ personnel.address }}</p>
+  <p>Position: {{ personnel.position }}</p>
+  <a href="{% url 'personnel_mgn:personnel_update' personnel.pk %}">Edit</a>
+  <a href="{% url 'personnel_mgn:personnel_delete' personnel.pk %}">Delete</a>
+{% endblock %}
